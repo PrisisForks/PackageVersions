@@ -28,7 +28,7 @@
         }
     },
     "replaces": {
-        "ocramius/package-versions"
+        "ocramius/package-versions": "self.version"
     },
     "extra": {
         "class": "PackageVersions\\Installer",
