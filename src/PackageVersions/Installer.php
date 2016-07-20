@@ -40,7 +40,7 @@ namespace PackageVersions;
      */
     public static function getVersion($packageName)
     {
-        if (! isset(self::VERSIONS[$packageName])) {
+        if (null !== self::VERSIONS[$packageName]) {
             throw new \OutOfBoundsException(
                 'Required package "' . $packageName . '" is not installed: cannot detect its version'
             );
