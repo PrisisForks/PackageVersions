@@ -114,7 +114,7 @@ PHP;
      * @throws \RuntimeException
      */
     private static function writeVersionClassToFile(
-        string $versionClassSource,
+        $versionClassSource,
         Config $composerConfig,
         RootPackageInterface $rootPackage
     ) {
