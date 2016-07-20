@@ -411,10 +411,10 @@ PHP;
      */
     public function testDumpsVersionsClassToSpecificLocation(RootPackageInterface $rootPackage, $inVendor)
     {
-        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->createMock();
-        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->createMock();
-        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->createMock();
-        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->createMock();
+        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->getMock();
+        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->getMock();
+        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->getMock();
+        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->getMock();
         $repository        = $this->createMock(InstalledRepositoryInterface::class);
 
         $vendorDir = sys_get_temp_dir() . '/' . uniqid('InstallerTest', true) . '/vendor';
