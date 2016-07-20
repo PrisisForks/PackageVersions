@@ -27,6 +27,9 @@
             "PackageVersionsTest\\": "test/PackageVersionsTest"
         }
     },
+    "replaces": {
+        "ocramius/package-versions"
+    }
     "extra": {
         "class": "PackageVersions\\Installer",
         "branch-alias": {
