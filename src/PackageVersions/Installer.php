@@ -172,7 +172,7 @@ PHP;
             yield $package['name'] => $package['version'] . '@' . (
                 isset($package['source']['reference'])
                     ? $package['source']['reference']
-                    : ( isset($package['dist']['reference']) ? $package['dist']['reference'] : '')
+                    : (isset($package['dist']['reference']) ? $package['dist']['reference'] : '')
             );
         }
 
