@@ -180,7 +180,7 @@ final class Versions
     {
         $selfVersion = self::VERSIONS;
 
-        if (isset($selfVersion[$packageName])) {
+        if (! isset($selfVersion[$packageName])) {
             throw new \OutOfBoundsException(
                 'Required package "' . $packageName . '" is not installed: cannot detect its version'
             );
@@ -284,7 +284,7 @@ final class Versions
     {
         $selfVersion = self::VERSIONS;
 
-        if (isset($selfVersion[$packageName])) {
+        if (! isset($selfVersion[$packageName])) {
             throw new \OutOfBoundsException(
                 'Required package "' . $packageName . '" is not installed: cannot detect its version'
             );
@@ -390,7 +390,7 @@ final class Versions
     {
         $selfVersion = self::VERSIONS;
 
-        if (isset($selfVersion[$packageName])) {
+        if (! isset($selfVersion[$packageName])) {
             throw new \OutOfBoundsException(
                 'Required package "' . $packageName . '" is not installed: cannot detect its version'
             );
