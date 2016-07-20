@@ -304,10 +304,10 @@ PHP;
      */
     public function testDumpVersionsWithoutPackageSourceDetails()
     {
-        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->createMock();
-        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->createMock();
-        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->createMock();
-        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->createMock();
+        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->getMock();
+        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->getMock();
+        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->getMock();
+        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->getMock();
         $repository        = $this->createMock(InstalledRepositoryInterface::class);
         $package           = $this->createMock(RootPackageInterface::class);
 
