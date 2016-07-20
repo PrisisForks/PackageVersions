@@ -52,9 +52,9 @@ final class InstallerTest extends PHPUnit_Framework_TestCase
         parent::setUp();
 
         $this->installer       = new Installer();
-        $this->io              = $this->getMock(IOInterface::class);
-        $this->composer        = $this->getMock(Composer::class);
-        $this->eventDispatcher = $this->getMockBuilder(EventDispatcher::class)->disableOriginalConstructor()->getMock();
+        $this->io              = $this->createMock(IOInterface::class);
+        $this->composer        = $this->createMock(Composer::class);
+        $this->eventDispatcher = $this->getMockBuilder(EventDispatcher::class)->disableOriginalConstructor()->createMock();
 
         $this->composer->expects(self::any())->method('getEventDispatcher')->willReturn($this->eventDispatcher);
     }
@@ -85,12 +85,12 @@ final class InstallerTest extends PHPUnit_Framework_TestCase
 
     public function testDumpVersionsClass()
     {
-        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->getMock();
-        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->getMock();
-        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->getMock();
-        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->getMock();
-        $repository        = $this->getMock(InstalledRepositoryInterface::class);
-        $package           = $this->getMock(RootPackageInterface::class);
+        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->createMock();
+        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->createMock();
+        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->createMock();
+        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->createMock();
+        $repository        = $this->createMock(InstalledRepositoryInterface::class);
+        $package           = $this->createMock(RootPackageInterface::class);
 
         $vendorDir = sys_get_temp_dir() . '/' . uniqid('InstallerTest', true);
 
@@ -197,12 +197,12 @@ PHP;
 
     public function testDumpVersionsClassNoDev()
     {
-        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->getMock();
-        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->getMock();
-        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->getMock();
-        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->getMock();
-        $repository        = $this->getMock(InstalledRepositoryInterface::class);
-        $package           = $this->getMock(RootPackageInterface::class);
+        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->createMock();
+        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->createMock();
+        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->createMock();
+        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->createMock();
+        $repository        = $this->createMock(InstalledRepositoryInterface::class);
+        $package           = $this->createMock(RootPackageInterface::class);
 
         $vendorDir = sys_get_temp_dir() . '/' . uniqid('InstallerTest', true);
 
@@ -304,12 +304,12 @@ PHP;
      */
     public function testDumpVersionsWithoutPackageSourceDetails()
     {
-        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->getMock();
-        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->getMock();
-        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->getMock();
-        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->getMock();
-        $repository        = $this->getMock(InstalledRepositoryInterface::class);
-        $package           = $this->getMock(RootPackageInterface::class);
+        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->createMock();
+        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->createMock();
+        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->createMock();
+        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->createMock();
+        $repository        = $this->createMock(InstalledRepositoryInterface::class);
+        $package           = $this->createMock(RootPackageInterface::class);
 
         $vendorDir = sys_get_temp_dir() . '/' . uniqid('InstallerTest', true);
 
@@ -411,11 +411,11 @@ PHP;
      */
     public function testDumpsVersionsClassToSpecificLocation(RootPackageInterface $rootPackage, $inVendor)
     {
-        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->getMock();
-        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->getMock();
-        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->getMock();
-        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->getMock();
-        $repository        = $this->getMock(InstalledRepositoryInterface::class);
+        $config            = $this->getMockBuilder(Config::class)->disableOriginalConstructor()->createMock();
+        $locker            = $this->getMockBuilder(Locker::class)->disableOriginalConstructor()->createMock();
+        $repositoryManager = $this->getMockBuilder(RepositoryManager::class)->disableOriginalConstructor()->createMock();
+        $installManager    = $this->getMockBuilder(InstallationManager::class)->disableOriginalConstructor()->createMock();
+        $repository        = $this->createMock(InstalledRepositoryInterface::class);
 
         $vendorDir = sys_get_temp_dir() . '/' . uniqid('InstallerTest', true) . '/vendor';
 
