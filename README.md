@@ -12,11 +12,11 @@ $version = \PackageVersions\Versions::getVersion('samsonasik/package-versions');
 var_dump($version); // 1.0.0@0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33
 ```
 
-[![Build Status](https://travis-ci.org/Ocramius/PackageVersions.svg?branch=master)](https://travis-ci.org/Ocramius/PackageVersions)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/?branch=master)
-[![Packagist](https://img.shields.io/packagist/v/ocramius/package-versions.svg)](https://packagist.org/packages/ocramius/package-versions)
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/ocramius/package-versions.svg)](https://packagist.org/packages/ocramius/package-versions)
+[![Build Status](https://travis-ci.org/samsonasik/PackageVersions.svg?branch=master)](https://travis-ci.org/samsonasik/PackageVersions)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/samsonasik/PackageVersions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/samsonasik/PackageVersions/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/samsonasik/PackageVersions/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/samsonasik/PackageVersions/?branch=master)
+[![Packagist](https://img.shields.io/packagist/v/samsonasik/package-versions.svg)](https://packagist.org/packages/samsonasik/package-versions)
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/samsonasik/package-versions.svg)](https://packagist.org/packages/samsonasik/package-versions)
 
 ### Installation
 
