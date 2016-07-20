@@ -523,7 +523,7 @@ PHP;
             },
             array_filter(
                 scandir($directory),
-                function (string $dirItem) {
+                function ($dirItem) {
                     return ! in_array($dirItem, ['.', '..'], true);
                 }
             )
