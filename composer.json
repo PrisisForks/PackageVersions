@@ -1,6 +1,6 @@
 {
     "name": "samsonasik/package-versions",
-    "description": "A backport of ocramius/package-versions that support php ^5.6. Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+    "description": "A backport of ocramius/package-versions that supports php ^5.6. Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
     "type": "composer-plugin",
     "license": "MIT",
     "authors": [
