@@ -1,6 +1,6 @@
 {
-    "name": "ocramius/package-versions",
-    "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+    "name": "samsonasik/package-versions",
+    "description": "A backport of ocramius/package-versions that supports php ^5.6. Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
     "type": "composer-plugin",
     "license": "MIT",
     "authors": [
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php":                 "~7.0",
+        "php":                 "^5.6 || ^7.0",
         "composer-plugin-api": "^1.0"
     },
     "require-dev": {
@@ -26,6 +26,9 @@
         "psr-4": {
             "PackageVersionsTest\\": "test/PackageVersionsTest"
         }
+    },
+    "replace": {
+        "ocramius/package-versions": ">1.0.0"
     },
     "extra": {
         "class": "PackageVersions\\Installer",
