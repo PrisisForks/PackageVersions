@@ -27,7 +27,7 @@
             "PackageVersionsTest\\": "test/PackageVersionsTest"
         }
     },
-    "replaces": {
+    "replace": {
         "ocramius/package-versions": "self.version"
     },
     "extra": {
