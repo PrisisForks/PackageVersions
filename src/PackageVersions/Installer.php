@@ -166,11 +166,13 @@ PHP;
     {
         $lockData = $locker->getLockData();
 
-        $lockData['packages-dev'] = $lockData['packages-dev'] ?? [];
+        $lockData['packages-dev'] = isset($lockData['packages-dev']) ? $lockData['packages-dev'] : [];
 
         foreach (array_merge($lockData['packages'], $lockData['packages-dev']) as $package) {
             yield $package['name'] => $package['version'] . '@' . (
-                $package['source']['reference']?? $package['dist']['reference'] ?? ''
+                isset($package['source']['reference'])
+                    ? $package['source']['reference']
+                    : ( isset($package['dist']['reference']) ? $package['dist']['reference'] : '')
             );
         }
 
