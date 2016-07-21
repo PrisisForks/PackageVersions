@@ -188,6 +188,16 @@ final class Versions
 
         return $selfVersion[$packageName];
     }
+
+    /**
+     * @throws \OutOfBoundsException if a version cannot be located
+     */
+    public function getShortVersion($packageName)
+    {
+        if (! $version = static::getVersion($packageName) instanceof \OutOfBoundsException) {
+            return explode('@', $version)[0];
+        }
+    }
 }
 
 PHP;
@@ -291,6 +301,16 @@ final class Versions
         }
 
         return $selfVersion[$packageName];
+    }
+
+    /**
+     * @throws \OutOfBoundsException if a version cannot be located
+     */
+    public function getShortVersion($packageName)
+    {
+        if (! $version = static::getVersion($packageName) instanceof \OutOfBoundsException) {
+            return explode('@', $version)[0];
+        }
     }
 }
 
@@ -397,6 +417,16 @@ final class Versions
         }
 
         return $selfVersion[$packageName];
+    }
+
+    /**
+     * @throws \OutOfBoundsException if a version cannot be located
+     */
+    public function getShortVersion($packageName)
+    {
+        if (! $version = static::getVersion($packageName) instanceof \OutOfBoundsException) {
+            return explode('@', $version)[0];
+        }
     }
 }
 

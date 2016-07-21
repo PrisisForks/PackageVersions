@@ -32,4 +32,20 @@ final class VersionsTest extends PHPUnit_Framework_TestCase
 
         Versions::getVersion(uniqid('', true) . '/' . uniqid('', true));
     }
+
+    public function testGetShortVersion()
+    {
+        $lockData = json_decode(file_get_contents(__DIR__ . '/../../composer.lock'), true);
+
+        $packages = array_merge($lockData['packages'], $lockData['packages-dev']);
+
+        self::assertNotEmpty($packages);
+
+        foreach ($packages as $package) {
+            self::assertSame(
+                $package['version'],
+                Versions::getShortVersion($package['name'])
+            );
+        }
+    }
 }
