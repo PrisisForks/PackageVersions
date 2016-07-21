@@ -8,8 +8,13 @@ This information is derived from the ```composer.lock``` file which is (re)gener
 
 ```php
 $version = \PackageVersions\Versions::getVersion('samsonasik/package-versions');
-
 var_dump($version); // 1.0.0@0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33
+
+$version = \PackageVersions\Versions::getShortVersion('samsonasik/package-versions');
+var_dump($version); // 1.0.0
+
+$version = \PackageVersions\Versions::getMajorVersion('samsonasik/package-versions');
+var_dump($version); // 1
 ```
 
 [![Build Status](https://travis-ci.org/samsonasik/PackageVersions.svg?branch=master)](https://travis-ci.org/samsonasik/PackageVersions)

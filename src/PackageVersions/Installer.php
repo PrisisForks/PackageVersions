@@ -50,6 +50,22 @@ namespace PackageVersions;
 
         return $selfVersion[$packageName];
     }
+
+    /**
+     * @throws \OutOfBoundsException if a version cannot be located
+     */
+    public static function getShortVersion($packageName)
+    {
+        return explode('@', static::getVersion($packageName))[0];
+    }
+
+    /**
+     * @throws \OutOfBoundsException if a version cannot be located
+     */
+    public static function getMajorVersion($packageName)
+    {
+        return explode('.', static::getShortVersion($packageName))[0];
+    }
 }
 
 PHP;
