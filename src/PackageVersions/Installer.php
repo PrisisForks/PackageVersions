@@ -56,9 +56,15 @@ namespace PackageVersions;
      */
     public static function getShortVersion($packageName)
     {
-        if (! ($version = static::getVersion($packageName)) instanceof \OutOfBoundsException) {
-            return explode('@', $version)[0];
-        }
+        return explode('@', static::getVersion($packageName))[0];
+    }
+
+    /**
+     * @throws \OutOfBoundsException if a version cannot be located
+     */
+    public static function getMajorVersion($packageName)
+    {
+        return explode('.', static::getShortVersion($packageName))[0];
     }
 }
 

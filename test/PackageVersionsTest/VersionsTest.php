@@ -63,4 +63,27 @@ final class VersionsTest extends PHPUnit_Framework_TestCase
 
         Versions::getShortVersion(uniqid('', true) . '/' . uniqid('', true));
     }
+
+    public function testGetMajorVersion()
+    {
+        $lockData = json_decode(file_get_contents(__DIR__ . '/../../composer.lock'), true);
+
+        $packages = array_merge($lockData['packages'], $lockData['packages-dev']);
+
+        self::assertNotEmpty($packages);
+
+        foreach ($packages as $package) {
+            self::assertSame(
+                explode('.', $package['version'])[0],
+                Versions::getMajorVersion($package['name'])
+            );
+        }
+    }
+
+    public function testInvalidVersionsAreRejectedInGetMajorVersion()
+    {
+        $this->setExpectedException(\OutOfBoundsException::class);
+
+        Versions::getMajorVersion(uniqid('', true) . '/' . uniqid('', true));
+    }
 }
