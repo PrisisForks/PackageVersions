@@ -56,4 +56,11 @@ final class VersionsTest extends PHPUnit_Framework_TestCase
             );
         }
     }
+
+    public function testInvalidVersionsAreRejectedInGetShortVersion()
+    {
+        $this->setExpectedException(\OutOfBoundsException::class);
+
+        Versions::getShortVersion(uniqid('', true) . '/' . uniqid('', true));
+    }
 }
