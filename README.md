@@ -1,26 +1,33 @@
 # Package Versions
 
+> This is a backport of `ocramius/package-versions` that support php 5.6, while `ocramius/package-versions` only support php 7+.
+> 
+It's a more recent version of samsonasik/package-versions
+
 This utility provides quick and easy access to version information of composer dependencies.
 
 This information is derived from the ```composer.lock``` file which is (re)generated during ```composer install``` or ```composer update```.
 
 ```php
-$version = \PackageVersions\Versions::getVersion('ocramius/package-versions');
-
+$version = \PackageVersions\Versions::getVersion('muglug/package-versions');
 var_dump($version); // 1.0.0@0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33
+
+$version = \PackageVersions\Versions::getShortVersion('muglug/package-versions');
+var_dump($version); // 1.0.0
+
+$version = \PackageVersions\Versions::getMajorVersion('muglug/package-versions');
+var_dump($version); // 1
 ```
 
-[![Build Status](https://travis-ci.org/Ocramius/PackageVersions.svg?branch=master)](https://travis-ci.org/Ocramius/PackageVersions)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ocramius/PackageVersions/?branch=master)
-[![Downloads](https://img.shields.io/packagist/dt/ocramius/package-versions.svg)](https://packagist.org/packages/ocramius/package-versions)
-[![Packagist](https://img.shields.io/packagist/v/ocramius/package-versions.svg)](https://packagist.org/packages/ocramius/package-versions)
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/ocramius/package-versions.svg)](https://packagist.org/packages/ocramius/package-versions)
+[![Build Status](https://travis-ci.org/muglug/PackageVersions.svg?branch=master)](https://travis-ci.org/muglug/PackageVersions)
+[![Downloads](https://img.shields.io/packagist/dt/muglug/package-versions.svg)](https://packagist.org/packages/muglug/package-versions)
+[![Packagist](https://img.shields.io/packagist/v/muglug/package-versions.svg)](https://packagist.org/packages/muglug/package-versions)
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/muglug/package-versions.svg)](https://packagist.org/packages/muglug/package-versions)
 
 ### Installation
 
 ```sh
-composer require ocramius/package-versions
+composer require muglug/package-versions
 ```
 
 It is suggested that you use a optimized composer autoloader in order to prevent

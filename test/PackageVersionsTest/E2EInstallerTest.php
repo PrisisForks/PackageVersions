@@ -58,7 +58,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
             [
                 'name'         => 'package-versions/e2e-global',
                 'require'      => [
-                    'ocramius/package-versions' => '1.0.0'
+                    'muglug/package-versions' => '1.0.0'
                 ],
                 'repositories' => [
                     [
@@ -97,7 +97,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
 
         $this->execComposerInDir('update', $this->tempLocalComposerHome);
         $this->assertFileNotExists(
-            $this->tempLocalComposerHome . '/vendor/ocramius/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
         );
     }
 
@@ -111,7 +111,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
                 'name'         => 'package-versions/e2e-local',
                 'require'      => [
                     'test/package' => '2.0.0',
-                    'ocramius/package-versions' => '1.0.0'
+                    'muglug/package-versions' => '1.0.0'
                 ],
                 'repositories' => [
                     [
@@ -128,13 +128,13 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
 
         $this->execComposerInDir('update', $this->tempLocalComposerHome);
         $this->assertFileExists(
-            $this->tempLocalComposerHome . '/vendor/ocramius/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
         );
 
-        $this->execComposerInDir('remove ocramius/package-versions', $this->tempLocalComposerHome);
+        $this->execComposerInDir('remove muglug/package-versions', $this->tempLocalComposerHome);
 
         $this->assertFileNotExists(
-            $this->tempLocalComposerHome . '/vendor/ocramius/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
         );
     }
 
@@ -151,7 +151,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
             [
                 'name'         => 'package-versions/e2e-local',
                 'require-dev'      => [
-                    'ocramius/package-versions' => '1.0.0'
+                    'muglug/package-versions' => '1.0.0'
                 ],
                 'repositories' => [
                     [
@@ -168,13 +168,13 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
 
         $this->execComposerInDir('update', $this->tempLocalComposerHome);
         $this->assertFileExists(
-            $this->tempLocalComposerHome . '/vendor/ocramius/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
         );
 
         $this->execComposerInDir('install --no-dev', $this->tempLocalComposerHome);
 
         $this->assertFileNotExists(
-            $this->tempLocalComposerHome . '/vendor/ocramius/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
         );
     }
 
@@ -182,7 +182,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
     {
         $zip = new ZipArchive();
 
-        $zip->open($this->tempArtifact . '/ocramius-package-versions-1.0.0.zip', ZipArchive::CREATE);
+        $zip->open($this->tempArtifact . '/muglug-package-versions-1.0.0.zip', ZipArchive::CREATE);
 
         $files = array_filter(
             iterator_to_array(new RecursiveIteratorIterator(
@@ -237,7 +237,11 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
         $zip->close();
     }
 
-    private function writeComposerJsonFile(array $config, string $directory)
+    /**
+     * @param  string $directory
+     * @return void
+     */
+    private function writeComposerJsonFile(array $config, $directory)
     {
         file_put_contents(
             $directory . '/composer.json',
@@ -245,7 +249,12 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
         );
     }
 
-    private function execComposerInDir(string $command, string $dir) : array
+    /**
+     * @param  string $command
+     * @param  string $dir
+     * @return array
+     */
+    private function execComposerInDir($command, $dir)
     {
         $currentDir = getcwd();
         chdir($dir);
@@ -260,7 +269,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    private function rmDir(string $directory)
+    private function rmDir($directory)
     {
         if (! is_dir($directory)) {
             unlink($directory);
@@ -274,7 +283,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
             },
             array_filter(
                 scandir($directory),
-                function (string $dirItem) {
+                function ($dirItem) {
                     return ! in_array($dirItem, ['.', '..'], true);
                 }
             )

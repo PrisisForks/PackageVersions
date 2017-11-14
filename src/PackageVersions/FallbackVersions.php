@@ -24,7 +24,7 @@ final class FallbackVersions
      * @throws \OutOfBoundsException if a version cannot be located
      * @throws \UnexpectedValueException if the composer.lock file could not be located
      */
-    public static function getVersion(string $packageName) : string
+    public static function getVersion($packageName)
     {
         $versions = iterator_to_array(self::getVersions(self::getComposerLockPath()));
 
@@ -42,7 +42,7 @@ final class FallbackVersions
      *
      * @throws \UnexpectedValueException
      */
-    private static function getComposerLockPath() : string
+    private static function getComposerLockPath()
     {
         // bold assumption, but there's not here to fix everyone's problems.
         $checkedPaths = [__DIR__ . '/../../../../../composer.lock', __DIR__ . '/../../composer.lock'];
@@ -61,15 +61,21 @@ final class FallbackVersions
         ));
     }
 
-    private static function getVersions(string $composerLockFile) : \Generator
+    /**
+     * @param  string $composerLockFile
+     * @return \Generator
+     */
+    private static function getVersions($composerLockFile)
     {
         $lockData = json_decode(file_get_contents($composerLockFile), true);
 
-        $lockData['packages-dev'] = $lockData['packages-dev'] ?? [];
+        $lockData['packages-dev'] = isset($lockData['packages-dev']) ? $lockData['packages-dev'] : [];
 
         foreach (array_merge($lockData['packages'], $lockData['packages-dev']) as $package) {
             yield $package['name'] => $package['version'] . '@' . (
-                $package['source']['reference']?? $package['dist']['reference'] ?? ''
+                isset($package['source']['reference'])
+                    ? $package['source']['reference']
+                    : (isset($package['dist']['reference']) ? $package['dist']['reference'] : '')
             );
         }
 
