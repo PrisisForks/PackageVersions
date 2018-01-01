@@ -2,11 +2,11 @@
 
 namespace PackageVersionsTest;
 
-use PackageVersions\Versions;
+use Muglug\PackageVersions\Versions;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @covers \PackageVersions\Versions
+ * @covers \Muglug\PackageVersions\Versions
  */
 final class VersionsTest extends PHPUnit_Framework_TestCase
 {

@@ -58,7 +58,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
             [
                 'name'         => 'package-versions/e2e-global',
                 'require'      => [
-                    'muglug/package-versions' => '1.0.0'
+                    'muglug/package-versions-56' => '1.0.0'
                 ],
                 'repositories' => [
                     [
@@ -97,7 +97,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
 
         $this->execComposerInDir('update', $this->tempLocalComposerHome);
         $this->assertFileNotExists(
-            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions-56/src/PackageVersions/Versions.php'
         );
     }
 
@@ -111,7 +111,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
                 'name'         => 'package-versions/e2e-local',
                 'require'      => [
                     'test/package' => '2.0.0',
-                    'muglug/package-versions' => '1.0.0'
+                    'muglug/package-versions-56' => '1.0.0'
                 ],
                 'repositories' => [
                     [
@@ -128,13 +128,13 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
 
         $this->execComposerInDir('update', $this->tempLocalComposerHome);
         $this->assertFileExists(
-            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions-56/src/PackageVersions/Versions.php'
         );
 
-        $this->execComposerInDir('remove muglug/package-versions', $this->tempLocalComposerHome);
+        $this->execComposerInDir('remove muglug/package-versions-56', $this->tempLocalComposerHome);
 
         $this->assertFileNotExists(
-            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions-56/src/PackageVersions/Versions.php'
         );
     }
 
@@ -151,7 +151,7 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
             [
                 'name'         => 'package-versions/e2e-local',
                 'require-dev'      => [
-                    'muglug/package-versions' => '1.0.0'
+                    'muglug/package-versions-56' => '1.0.0'
                 ],
                 'repositories' => [
                     [
@@ -168,13 +168,13 @@ class E2EInstaller extends PHPUnit_Framework_TestCase
 
         $this->execComposerInDir('update', $this->tempLocalComposerHome);
         $this->assertFileExists(
-            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions-56/src/PackageVersions/Versions.php'
         );
 
         $this->execComposerInDir('install --no-dev', $this->tempLocalComposerHome);
 
         $this->assertFileNotExists(
-            $this->tempLocalComposerHome . '/vendor/muglug/package-versions/src/PackageVersions/Versions.php'
+            $this->tempLocalComposerHome . '/vendor/muglug/package-versions-56/src/PackageVersions/Versions.php'
         );
     }
 

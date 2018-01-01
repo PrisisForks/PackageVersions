@@ -2,8 +2,8 @@
 
 namespace PackageVersionsTest;
 
-use PackageVersions\FallbackVersions;
-use PackageVersions\Versions;
+use Muglug\PackageVersions\FallbackVersions;
+use Muglug\PackageVersions\Versions;
 use PHPUnit_Framework_TestCase;
 
 /**

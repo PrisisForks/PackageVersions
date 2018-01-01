@@ -28,25 +28,22 @@
     },
     "autoload": {
         "psr-4": {
-            "PackageVersions\\": "src/PackageVersions"
+            "Muglug\\PackageVersions\\": "src/PackageVersions"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PackageVersionsTest\\": "test/PackageVersionsTest"
+            "Muglug\\PackageVersionsTest\\": "test/PackageVersionsTest"
         }
     },
-    "replace": {
-        "ocramius/package-versions": ">=1.0.0"
-    },
     "extra": {
-        "class": "PackageVersions\\Installer",
+        "class": "Muglug\\PackageVersions\\Installer",
         "branch-alias": {
             "dev-master": "2.0.x-dev"
         }
     },
     "scripts": {
-        "post-update-cmd":  "PackageVersions\\Installer::dumpVersionsClass",
-        "post-install-cmd": "PackageVersions\\Installer::dumpVersionsClass"
+        "post-update-cmd":  "Muglug\\PackageVersions\\Installer::dumpVersionsClass",
+        "post-install-cmd": "Muglug\\PackageVersions\\Installer::dumpVersionsClass"
     }
 }

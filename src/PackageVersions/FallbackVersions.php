@@ -1,6 +1,6 @@
 <?php
 
-namespace PackageVersions;
+namespace Muglug\PackageVersions;
 
 /**
  * @internal
